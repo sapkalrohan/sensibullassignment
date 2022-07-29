@@ -1,13 +1,19 @@
 from stock.model.conf import app,setup_routes
 import asyncio
+from hypercorn.asyncio import serve
+from hypercorn.config import Config
 
-# def main():
-  # if __name__ == "stock.app":
-  #   setup_routes()
-  #   app.run()
+config = Config()
+setup_routes()
 
-# asyncio.run(main())
+config.bind = ["127.0.0.1:19093"]  
+shutdown_event = asyncio.Event()
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(
+    serve(app, config, shutdown_trigger=lambda: asyncio.Future())
+)
 
 if __name__ == "stock.app":
-    setup_routes()
-    app.run()
+    asyncio.run(serve(app, config))
+ 
