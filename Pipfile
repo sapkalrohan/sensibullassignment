@@ -5,7 +5,10 @@ name = "pypi"
 
 [packages]
 flask = "*"
+flask-sqlalchemy = "*"
 marshmallow = "*"
+aiohttp = "*"
+quart = "*"
 
 [dev-packages]
 
