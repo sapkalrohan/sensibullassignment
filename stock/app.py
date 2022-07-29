@@ -6,7 +6,7 @@ from hypercorn.config import Config
 config = Config()
 setup_routes()
 
-config.bind = ["127.0.0.1:19093"]  
+config.bind = ["0.0.0.0:19093"]  
 shutdown_event = asyncio.Event()
 
 loop = asyncio.get_event_loop()
