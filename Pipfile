@@ -9,6 +9,8 @@ flask-sqlalchemy = "*"
 marshmallow = "*"
 aiohttp = "*"
 quart = "*"
+quart-schema = "*"
+hypercorn = "*"
 
 [dev-packages]
 
